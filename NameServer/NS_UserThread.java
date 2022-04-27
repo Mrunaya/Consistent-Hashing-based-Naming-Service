@@ -11,7 +11,7 @@ public class NS_UserThread extends Thread {
 	static ObjectOutputStream outputStream = null;
 	static ObjectInputStream inputStream = null;
 	static HashMap<Integer, String> data = new HashMap<>();
-	static RNameServerInfo nsInfo = null;
+	static NameServerInfo nsInfo = null;
 	 static Socket fwdSocket = null;
 	 int port;
 	 String root_ip;
