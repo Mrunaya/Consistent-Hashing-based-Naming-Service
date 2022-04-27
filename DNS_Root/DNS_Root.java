@@ -32,15 +32,17 @@ public class DNS_Root {
 	}
 	String lookup(int key) throws UnknownHostException, IOException, ClassNotFoundException {
 		String value="";
-		if(table.containsKey(key)) {
+		if(key > Collections.max(nsIds)) {
 			System.out.println("\nSequence of Server IDs Visited: 0" );
 			System.out.println("Value retrived from Server ID 0" );
+			if(table.containsKey(key)) {
 			value="The value at location is: "+table.get(key);
+			}else {
+				value="\n"+"Key Not Found!!"+"\n";
+			}
 		}
 		else if(nsInfo.predessorId==0 && nsInfo.successorId==0 || key>nsInfo.predessorId) {
-			System.out.println("\nSequence of Server IDs Visited: 0" );
-			System.out.println("Value retrived from Server ID 0" );
-			value="\n"+"Key Not Found!!"+"\n";
+			
 		}else {
 		 fwdSocket = new Socket(nsInfo.getSuccessorIP(), nsInfo.successorPortListning);
 		 ObjectInputStream inputStreamFwd = new ObjectInputStream(fwdSocket.getInputStream());
@@ -128,9 +130,15 @@ public class DNS_Root {
 		
 		//if key in bootstrap server then dekete
 		if(key > Collections.max(nsIds)) {
+			if(table.containsKey(key)) {
 			System.out.println("\nDeletion Succesful");
 			System.out.println("Server Visited 0\n"  );
 			table.remove(key);
+			}else {
+
+				System.out.println("Key Not Found"  );
+				System.out.println("Server Visited 0\n"  );
+			}
 		}
 			
 		else {
