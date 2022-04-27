@@ -117,11 +117,13 @@ public class NS_UserThread extends Thread {
 					outputStream.writeObject("updateMaxServerID");
 					outputStream.writeObject(id);
 					socket.close();
-					
+					System.out.println("Successful exit");
+					System.out.println("Range of IDs handed over ["+nameServer.nsInfo.predessorId+","+id+"]");
+					System.out.println("NameServer SuccessorId : "+nameServer.nsInfo.successorId);
 					
 					break;
 				}
-				System.out.println("NameServer SuccessorId : "+nameServer.nsInfo.successorId + " PredessorId :"+nameServer.nsInfo.predessorId);
+				 
 				
 			}
 			System.out.println("NameServer Exited");
