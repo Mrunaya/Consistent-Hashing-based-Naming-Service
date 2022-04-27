@@ -48,6 +48,11 @@ public class DNS_Root {
 		 value = (String) inputStreamFwd.readObject();
 		 String serverTracker = (String) inputStreamFwd.readObject();
 		 int count = 0;
+		 if(value.equalsIgnoreCase("Nokey")) {
+			 count++;
+			 value="No Key Found";
+		 }
+				 
 		 for(int i = 0; i < serverTracker.length(); i++)
 		 {
 			 if(serverTracker.charAt(i) == '-')
