@@ -29,7 +29,7 @@ public class NS_UserThread extends Thread {
 	public void run() {
 		try  {
 			String userCmd="";
-			NameServer.nsInfo =new RNameServerInfo(id, port);
+			NameServer.nsInfo =new NameServerInfo(id, port);
 			while(!userCmd.equalsIgnoreCase("quit")) {
 				
 				Scanner sc = new Scanner(System.in);

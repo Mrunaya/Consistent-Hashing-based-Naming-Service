@@ -17,7 +17,7 @@ public class NameServer {
 	static ObjectOutputStream outputStream = null;
 	static ObjectInputStream inputStream = null;
 	static HashMap<Integer, String> table = new HashMap<>();
-	static RNameServerInfo nsInfo = null;
+	static NameServerInfo nsInfo = null;
 	 static Socket fwdSocket = null;
 	String lookup(int key,String serverTracker) throws IOException, ClassNotFoundException {
 
