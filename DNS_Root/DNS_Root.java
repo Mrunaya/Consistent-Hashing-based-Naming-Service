@@ -37,7 +37,9 @@ public class DNS_Root {
 			System.out.println("Value retrived from Server ID 0" );
 			value="The value at location is: "+table.get(key);
 		}
-		else if(nsInfo.predessorId==0 && nsInfo.successorId==0) {
+		else if(nsInfo.predessorId==0 && nsInfo.successorId==0 || key>nsInfo.predessorId) {
+			System.out.println("\nSequence of Server IDs Visited: 0" );
+			System.out.println("Value retrived from Server ID 0" );
 			value="\n"+"Key Not Found!!"+"\n";
 		}else {
 		 fwdSocket = new Socket(nsInfo.getSuccessorIP(), nsInfo.successorPortListning);
@@ -48,7 +50,7 @@ public class DNS_Root {
 		 value = (String) inputStreamFwd.readObject();
 		 String serverTracker = (String) inputStreamFwd.readObject();
 		 int count = 0;
-		 if(value.equalsIgnoreCase("Nokey")) {
+		 if(value.equals("No")) {
 			 count++;
 			 value="No Key Found";
 		 }

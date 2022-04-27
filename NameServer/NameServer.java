@@ -44,7 +44,7 @@ public class NameServer {
 				e.printStackTrace();
 			}
 		}
-		return "Nokey found";
+		return "No key found";
 
 	}
 	String insert(int key, String value) throws UnknownHostException, IOException, ClassNotFoundException {
@@ -286,7 +286,7 @@ public class NameServer {
 						serverTracker = serverTracker.concat("->"+value[1]);
 					else 
 						serverTracker = serverTracker.concat("->"+nameServer.nsInfo.id);
-					if(result.equalsIgnoreCase("Nokey found"))
+					if(result.equalsIgnoreCase("No key found"))
 						outputStream.writeObject(result);
 					else
 					outputStream.writeObject(value[0]);
